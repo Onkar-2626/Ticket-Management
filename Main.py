@@ -17,12 +17,10 @@ from Schemas import customer,Login
 
 app = FastAPI()
 
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "https://aeroflow-book-flights-enmx83q79-onkar-2626s-projects.vercel.app"
-    ],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
