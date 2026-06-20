@@ -4,6 +4,7 @@ from django import db
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
+
 from Database import init_db, get_db
 from Auth import (
     create_token,
@@ -15,8 +16,8 @@ from Auth import (
 from Schemas import customer,Login
 
 app = FastAPI()
+
 app.add_middleware(
-    app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
@@ -25,7 +26,6 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)
 )
 
 @app.on_event("startup")
